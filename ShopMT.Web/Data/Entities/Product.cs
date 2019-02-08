@@ -9,7 +9,7 @@ namespace ShopMT.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(50, ErrorMessage="The field {0}  can contain {1} character lenght")]
         [Required]
         public string Name { get; set; }
 
