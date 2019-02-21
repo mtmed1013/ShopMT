@@ -1,6 +1,7 @@
-﻿namespace ShopMT.Web.Controllers.API
+namespace ShopMT.Web.Controllers.API
 {
     using Data;
+    using System.Linq;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("api/[Controller]")]
@@ -16,7 +17,7 @@
         [HttpGet]
         public IActionResult GetProducts()
         {
-            return this.Ok(this.productRepository.GetAll());
+            return this.Ok(this.productRepository.GetAllWithUsers());
         }
     }
 
