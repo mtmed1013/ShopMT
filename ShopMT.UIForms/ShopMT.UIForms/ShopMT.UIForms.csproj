@@ -12,5 +12,18 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.62955-pre2" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Views\LoginPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>
