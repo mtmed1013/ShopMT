@@ -41,7 +41,7 @@ namespace ShopMT.UIForms.ViewModels
                 return;
             }
 
-            if(!this.Email.Equals('mateo1013@gmail.com') || !this.Password.Equals('123456')) {
+            if(!this.Email.Equals("mateo1013@gmail.com") || !this.Password.Equals("123456")) {
                 await Application.Current.MainPage.DisplayAlert
                 (
                 "Error",
