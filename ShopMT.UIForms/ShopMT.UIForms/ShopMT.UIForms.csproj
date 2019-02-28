@@ -20,10 +20,15 @@
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />
     <Compile Remove="Views\LoginPage.cs" />
+    <Compile Remove="Views\ProductsPage.cs" />
+    <Compile Remove="ViewModels\ProducsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ShopMT.Common\ShopMT.Common.csproj" />
   </ItemGroup>
 </Project>

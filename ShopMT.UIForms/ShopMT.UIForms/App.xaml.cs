@@ -1,18 +1,18 @@
-using System;
-using ShopMT.UIForms.Views;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ShopMT.UIForms
 {
+    using Views;
+    using Xamarin.Forms;
+
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            this.MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
@@ -30,4 +30,5 @@ namespace ShopMT.UIForms
             // Handle when your app resumes
         }
     }
+
 }

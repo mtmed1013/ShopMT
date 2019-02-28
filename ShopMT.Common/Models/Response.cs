@@ -1,4 +1,4 @@
-﻿
+
 namespace ShopMT.Common.Models
 {
     using System;
@@ -10,5 +10,4 @@ namespace ShopMT.Common.Models
 
         public object Result { get; set; }
     }
-
 }

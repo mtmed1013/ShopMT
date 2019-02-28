@@ -7,10 +7,12 @@ namespace ShopMT.Web.Controllers
     using Data;
     using Data.Entities;
     using Helpers;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using ShopMT.Web.Models;
 
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
@@ -77,7 +79,7 @@ namespace ShopMT.Web.Controllers
                     path = $"~/images/Products/{file}";
                 }
                 // TODO: Pending to change to: this.User.Identity.Name
-                view.User = await this.userHelper.GetUserByEmailAsync("mateo1013@gmail.com");
+                view.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 var product = this.ToProduct(view, path);
                 await this.productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
@@ -164,10 +166,11 @@ namespace ShopMT.Web.Controllers
                             await view.ImageFile.CopyToAsync(stream);
                         }
 
+
                         path = $"~/images/Products/{file}";
                     }
                     // TODO: Pending to change to: this.User.Identity.Name
-                    view.User = await this.userHelper.GetUserByEmailAsync("mateo1013@gmail.com");
+                    view.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                     var product = this.ToProduct(view, path);
                     await this.productRepository.UpdateAsync(product);
                 }

@@ -3,6 +3,7 @@ namespace ShopMT.UIForms.ViewModels
     using System;
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
+    using ShopMT.UIForms.Views;
     using Xamarin.Forms;
 
     public class LoginViewModel
@@ -41,7 +42,8 @@ namespace ShopMT.UIForms.ViewModels
                 return;
             }
 
-            if(!this.Email.Equals("mateo1013@gmail.com") || !this.Password.Equals("123456")) {
+            if (!this.Email.Equals("mateo1013@gmail.com") || !this.Password.Equals("123456"))
+            {
                 await Application.Current.MainPage.DisplayAlert
                 (
                 "Error",
@@ -50,12 +52,13 @@ namespace ShopMT.UIForms.ViewModels
                 );
 
             }
-            await Application.Current.MainPage.DisplayAlert
-                (
-                "OK",
-                "Yeah!!",
-                "Accept"
-                );
+            else
+            {
+                MainViewModel.GetInstance().Products = new ProductsViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+
+            }
+
         }
     }
 }
